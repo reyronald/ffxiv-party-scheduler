@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -12,5 +13,137 @@ a {
 }
 
 * {
+  transition: all ease 200ms;
+}
+
+*,
+*:before,
+*:after {
   box-sizing: border-box;
+  position: relative;
+}
+
+/* ========== */
+
+:root {
+  --w: 165px;
+
+  --color-1: hsl(45deg 10% 25%);
+  --color-2: hsl(45deg 15% 65%);
+  --color-3: hsl(45deg 25% 75%);
+  --color-4: hsl(45deg 35% 85%);
+}
+
+body {
+  background: var(--color-2);
+}
+
+h1 {
+  text-align: center;
+}
+
+h1,
+h2 {
+  color: var(--color-1);
+}
+
+.container {
+  max-width: calc(calc(var(--w) * 7) + calc(24px * 6) + 32px);
+  margin: 0 auto;
+  padding: 2rem 1rem 3rem 1rem;
+}
+
+/* ========== */
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--w), 1fr));
+  gap: 24px;
+}
+
+.calendar .days {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.days h2 {
+  text-align: center;
+}
+
+/* ========== */
+
+.checkbox-container {
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.checkbox-container input {
+  appearance: none;
+  position: absolute;
+}
+
+.checkbox-container .checkbox-contents {
+  padding: 1.5rem 0.75em;
+  color: var(--color-1);
+  background-color: var(--color-3);
+}
+
+.checkbox-container:hover .checkbox-contents {
+  background: var(--color-4);
+}
+
+.checkbox-container input:checked + .checkbox-contents {
+  background: var(--color-1);
+  color: var(--color-3);
+}
+
+.checkbox-container input:focus + .checkbox-contents {
+  outline: auto 5px -webkit-focus-ring-color;
+  outline-offset: 8px;
+}
+
+/* ========== */
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.input label {
+  text-transform: uppercase;
+  color: var(--color-1);
+  font-weight: bold;
+}
+
+.input input {
+  font-size: 1rem;
+  margin-left: 16px;
+  padding: 8px 4px;
+  border: none;
+  background: var(--color-4);
+}
+
+/* ========== */
+
+.btn-container {
+  margin: 32px 0;
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background: var(--color-1);
+  color: var(--color-3);
+  padding: 1.5rem 0.75em;
+  font-size: 1.25rem;
+  min-width: 200px;
+  cursor: pointer;
+  border: none;
+}
+
+button:focus {
+  outline: auto 5px -webkit-focus-ring-color;
+  outline-offset: 8px;
 }
