@@ -9,7 +9,10 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
+  padding-bottom: 8px;
+  color: hsl(240deg 100% 60%);
+  font-weight: bold;
+  text-decoration: underline;
 }
 
 * {
@@ -117,9 +120,14 @@ h2 {
   font-weight: bold;
 }
 
+.input label {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
 .input input {
   font-size: 1rem;
-  margin-left: 16px;
   padding: 8px 4px;
   border: none;
   background: var(--color-4);

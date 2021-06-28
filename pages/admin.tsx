@@ -19,6 +19,12 @@ export default function Admin() {
 
   return (
     <div className="container">
+      <p>
+        <a href="https://formspree.io/forms/mwkaqlqd/submissions">
+          See submissions
+        </a>
+      </p>
+
       <textarea
         name="data"
         id="data"

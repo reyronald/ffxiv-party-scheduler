@@ -102,7 +102,7 @@ export default function Home() {
         <div className="input-container">
           <div className="input">
             <label>
-              Discord username
+              <span>Discord username</span>
               <input type="text" id="username" name="username" required />
             </label>
           </div>
