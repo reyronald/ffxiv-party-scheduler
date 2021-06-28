@@ -74,8 +74,15 @@ function tryJSONParse<T>(value: string): T | null {
 function findCommon(values: string[][] | null): string[] | null {
   if (values == null) return null;
 
-  const [ref, ...rest] = values;
-  const restSet = new Set(rest.flat());
-  const common = ref.filter((i) => restSet.has(i));
-  return common;
+  let [ref, ...rest] = values;
+
+  for (const items of rest) {
+    ref = intersection(ref, items);
+  }
+
+  return ref;
+}
+
+function intersection(array1: string[], array2: string[]) {
+  return array1.filter((value) => array2.includes(value));
 }
