@@ -29,12 +29,14 @@ a {
 /* ========== */
 
 :root {
-  --w: 165px;
+  --w: 168px;
 
   --color-1: hsl(45deg 10% 25%);
   --color-2: hsl(45deg 15% 65%);
   --color-3: hsl(45deg 25% 75%);
   --color-4: hsl(45deg 35% 85%);
+
+  --color-yellow: hsl(35deg 70% 40%);
 }
 
 body {
@@ -51,7 +53,7 @@ h2 {
 }
 
 .container {
-  max-width: calc(calc(var(--w) * 7) + calc(24px * 6) + 32px);
+  max-width: calc(calc(var(--w) * 7) + calc(28px * 6) + 32px);
   margin: 0 auto;
   padding: 2rem 1rem 3rem 1rem;
 }
@@ -81,6 +83,14 @@ h2 {
   font-size: 1.25rem;
 }
 
+.checkbox-container__green {
+  border: 4px solid green;
+}
+
+.checkbox-container__yellow {
+  border: 4px solid var(--color-yellow);
+}
+
 .checkbox-container input {
   appearance: none;
   position: absolute;
@@ -104,6 +114,10 @@ h2 {
 .checkbox-container input:focus + .checkbox-contents {
   outline: auto 5px -webkit-focus-ring-color;
   outline-offset: 8px;
+}
+
+.checkbox-names {
+  font-size: 0.875rem;
 }
 
 /* ========== */

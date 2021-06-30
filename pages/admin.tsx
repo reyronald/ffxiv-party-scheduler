@@ -1,14 +1,6 @@
 import { urlObjectKeys } from "next/dist/next-server/lib/utils";
 import { useState } from "react";
-
-type Object = { [key: string]: string };
-
-type Submission = {
-  _date: string;
-  _id: string;
-  _status: unknown;
-  username: string;
-} & Object;
+import { Submission } from "../components/submissions";
 
 export default function Admin() {
   const [value, setValue] = useState("");
@@ -83,6 +75,6 @@ function findCommon(values: string[][] | null): string[] | null {
   return ref;
 }
 
-function intersection(array1: string[], array2: string[]) {
+function intersection(array1: string[], array2: string[]): string[] {
   return array1.filter((value) => array2.includes(value));
 }

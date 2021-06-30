@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import Head from "next/head";
 import { ReactNode } from "react";
+import { submissions } from "../components/submissions";
 
 export default function Home() {
   return (
@@ -118,10 +120,31 @@ export default function Home() {
 
 function Checkbox(props: { id: string; children: ReactNode }) {
   const { id, children } = props;
+
+  const matchSubmissions = submissions.filter((sub) => sub[id] === "on");
+
+  const containerClassName =
+    matchSubmissions.length > 4
+      ? "checkbox-container__yellow"
+      : matchSubmissions.length === 8
+      ? "checkbox-container__green"
+      : null;
+
   return (
-    <label className="checkbox-container" htmlFor={id}>
+    <label
+      className={clsx("checkbox-container", containerClassName)}
+      htmlFor={id}
+    >
       <input type="checkbox" id={id} name={id} />
-      <div className="checkbox-contents">{children}</div>
+      <div className="checkbox-contents">
+        <strong>{children}</strong>
+
+        {matchSubmissions.map((ms) => (
+          <div key={ms.username} className="checkbox-names">
+            {ms.username}
+          </div>
+        ))}
+      </div>
     </label>
   );
 }
