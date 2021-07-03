@@ -18,6 +18,8 @@ export default function CalendarForm() {
       return prev;
     }, {});
 
+  console.log({ timeslotMap });
+
   return (
     <form action="https://formspree.io/f/mwkaqlqd" method="POST">
       <div className="calendar">
