@@ -18,7 +18,7 @@ export default function CalendarForm() {
       return prev;
     }, {});
 
-  console.log({ timeslotMap });
+  console.log({ timeslotMap, submissions });
 
   return (
     <form action="https://formspree.io/f/mwkaqlqd" method="POST">
