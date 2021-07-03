@@ -123,12 +123,15 @@ function Checkbox(props: { id: string; children: ReactNode }) {
 
   const matchSubmissions = submissions.filter((sub) => sub[id] === "on");
 
+  const classesMap = {
+    5: "checkbox-container__yellow-dashed",
+    6: "checkbox-container__yellow",
+    7: "checkbox-container__green-dashed",
+    8: "checkbox-container__green",
+  };
+
   const containerClassName =
-    matchSubmissions.length > 4
-      ? "checkbox-container__yellow"
-      : matchSubmissions.length === 8
-      ? "checkbox-container__green"
-      : null;
+    classesMap[matchSubmissions.length as keyof typeof classesMap];
 
   return (
     <label
