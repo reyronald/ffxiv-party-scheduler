@@ -73,6 +73,8 @@ export function getTimeslots(): Timeslot[][] {
     return timeslot;
   });
 
+  console.log({ userOffset, timeslots });
+
   return timeslots;
 }
 
