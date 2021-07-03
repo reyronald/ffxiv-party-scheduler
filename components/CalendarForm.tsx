@@ -1,11 +1,13 @@
 import clsx from "clsx";
 import { ReactNode } from "react";
-import { Days, days, getTimeslots, Timeslot } from "../utils/utils";
+import { Days, days, Timeslot } from "../utils/utils";
 import { submissions } from "./submissions";
 
-export default function CalendarForm() {
-  const timeslots = getTimeslots();
+type Props = {
+  timeslots: Timeslot[][];
+};
 
+export default function CalendarForm({ timeslots }: Props) {
   const timeslotMap = timeslots
     .flat()
     .reduce<Partial<Record<Days, Timeslot[]>>>((prev, current) => {
@@ -17,8 +19,6 @@ export default function CalendarForm() {
 
       return prev;
     }, {});
-
-  console.log({ timeslotMap, submissions });
 
   return (
     <form action="https://formspree.io/f/mwkaqlqd" method="POST">
